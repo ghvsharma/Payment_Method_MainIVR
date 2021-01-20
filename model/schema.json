@@ -128,7 +128,40 @@
                 ]
             },
             "fields" : [],
-            "samples" : []
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "collectors"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "collector"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "representative"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to talk to somebody"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to talk to a human"
+                }
+            ]
         },
         {
             "uniqueName" : "greeting",
@@ -147,67 +180,7 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "hi there."
-                },
-                {
-                    "language" : "en-US",
                     "taggedText" : "Hi"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi!"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good morning"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good afternoon"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "heya"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hello"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi there"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hey"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what'us up"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "yo"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what can you do"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what do you do"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "whatsup"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Hello."
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "sup"
                 }
             ]
         },
@@ -244,6 +217,6 @@
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "Payment_Method_MainIVR_21-1-2021_2.15.55am"
+        "uniqueName" : "Payment_Method_MainIVR_21-1-2021_2.25.02am"
     }
 }
