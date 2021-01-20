@@ -60,7 +60,32 @@
                 ]
             },
             "fields" : [],
-            "samples" : []
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "credit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "creditcard"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "debit card"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "debit"
+                }
+            ]
         },
         {
             "uniqueName" : "bank",
@@ -75,7 +100,20 @@
                 ]
             },
             "fields" : [],
-            "samples" : []
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "bank"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ACH"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ach"
+                }
+            ]
         },
         {
             "uniqueName" : "agent_transfer",
@@ -109,59 +147,7 @@
             "samples" : [
                 {
                     "language" : "en-US",
-                    "taggedText" : "sup"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Hello."
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "whatsup"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what do you do"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what can you do"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "yo"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "what'us up"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hey"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi there"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hello"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "heya"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good afternoon"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good morning"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "hi!"
+                    "taggedText" : "hi there."
                 },
                 {
                     "language" : "en-US",
@@ -169,7 +155,59 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "hi there."
+                    "taggedText" : "hi!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good morning"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good afternoon"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "heya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what'us up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yo"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what can you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what do you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "whatsup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hello."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sup"
                 }
             ]
         },
@@ -203,90 +241,9 @@
             },
             "fields" : [],
             "samples" : []
-        },
-        {
-            "uniqueName" : "goodbye",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "Thank you! Please reach out again if you need anything. Goodbye."
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's all"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "bye bye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "good bye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "stop talking"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "goodnight"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's all for today"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "goodbye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "cancel"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "see ya"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "stop"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "go away"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that would be all"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that is all thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
-                }
-            ]
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "Payment_Method_MainIVR_20-1-2021_8.47.12pm"
+        "uniqueName" : "Payment_Method_MainIVR_21-1-2021_2.15.55am"
     }
 }
