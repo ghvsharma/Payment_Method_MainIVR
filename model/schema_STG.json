@@ -1,13 +1,13 @@
 {
-    "friendlyName" : "GetAccountInfo",
+    "friendlyName" : "Payment_Method_MainIVR",
     "logQueries" : true,
-    "uniqueName" : "GetAccountInfo",
+    "uniqueName" : "Payment_Method_MainIVR",
     "defaults" : {
         "defaults" : {
             "assistant_initiation" : "task://greeting",
             "fallback" : "task://fallback",
             "collect" : {
-                "validate_on_failure" : "task://fallback"
+                "validate_on_failure" : "task://collect_fallback"
             }
         }
     },
@@ -18,7 +18,11 @@
                     "on_failure" : {
                         "repeat_question" : false,
                         "messages" : [
-                            { "say" : { "speech" : "" } },
+                            {
+                                "say" : {
+                                    "speech" : "I didn't get that. What did you say?"
+                                }
+                            },
                             {
                                 "say" : {
                                     "speech" : "I still didn't catch that. Please repeat."
@@ -32,11 +36,11 @@
                         ]
                     },
                     "on_success" : { "say" : { "speech" : "" } },
-                    "max_attempts" : 1
+                    "max_attempts" : 4
                 }
             },
             "voice" : {
-                "say_voice" : "[Polly] Joanna-Neural"
+                "say_voice" : "Polly.Joanna-Neural"
             },
             "name" : ""
         }
@@ -44,11 +48,14 @@
     "fieldTypes" : [],
     "tasks" : [
         {
-            "uniqueName" : "check_name_Yes_No",
+            "uniqueName" : "credit_card",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
+                        "say" : "ok, we will take your payment by credit card"
+                    },
+                    {
+                        "remember" : { "PmtType" : "1" }
                     }
                 ]
             },
@@ -56,231 +63,15 @@
             "samples" : []
         },
         {
-            "uniqueName" : "yes_no",
+            "uniqueName" : "bank",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
+                        "say" : "ok, we will take your payment by ACH."
+                    },
+                    {
+                        "remember" : { "PmtType" : "2" }
                     }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "yes_no",
-                    "fieldType" : "Twilio.YES_NO"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's not my name."
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it is correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's wrong"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "that's right {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "thank you {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Please {yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} please"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}  that is not my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that's incorrect"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that't not it"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not correct"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} that is my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} not"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} its not my name"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} right"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{yes_no} it's correct"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "check_name_task",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "set_MM",
-            "actions" : {
-                "actions" : [
-                    {
-                        "say" : "This communication is from a debt collector, this is an attempt to collect a debt and any information obtained will be used for that purpose"
-                    }
-                ]
-            },
-            "fields" : [],
-            "samples" : []
-        },
-        {
-            "uniqueName" : "ZipOrSSN_Taks",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
-                    },
-                    { "listen" : true }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "zip_ssn",
-                    "fieldType" : "Twilio.NUMBER_SEQUENCE"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zip code is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my zip code is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zipcode {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} its my zip"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} its my ssn"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "okay my ssn is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "thank you {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} thank you"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} is my ssn"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn} is my zip"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my ssn is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "my zip is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "zip is {zip_ssn}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "ssn is {zip_ssn} "
-                }
-            ]
-        },
-        {
-            "uniqueName" : "getAccount",
-            "actions" : {
-                "actions" : [
-                    {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
-                    },
-                    { "listen" : true }
                 ]
             },
             "fields" : [],
@@ -291,96 +82,25 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
-                    }
-                ]
-            },
-            "fields" : [
-                {
-                    "uniqueName" : "Agent",
-                    "fieldType" : "Twilio.ALPHANUMERIC"
-                }
-            ],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Please connect me to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I want to talk to an operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I want to to talk to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "transfer me to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "I'd like to talk to an agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "Operator"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "{Agent}"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "discuss with agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "talk to agent"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "i want agent transfer"
-                }
-            ]
-        },
-        {
-            "uniqueName" : "dummy",
-            "actions" : {
-                "actions" : [
-                    { "say" : { "speech" : " " } },
-                    { "remember" : {} },
+                        "say" : "You will be transfer to an agent."
+                    },
                     {
-                        "redirect" : "task://agent_transfer"
+                        "remember" : { "AgnetTransfer" : "true" }
                     }
                 ]
             },
             "fields" : [],
-            "samples" : [
-                {
-                    "language" : "en-US",
-                    "taggedText" : "dummy"
-                }
-            ]
+            "samples" : []
         },
         {
             "uniqueName" : "greeting",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
+                        "say" : "If you want to pay by credit or debit card say, credit card or debit card., , if you pay by ACH, say ACH or bank."
+                    },
+                    {
+                        "remember" : { "task_fail_counter" : 0 }
                     },
                     { "listen" : true }
                 ]
@@ -389,18 +109,96 @@
             "samples" : [
                 {
                     "language" : "en-US",
+                    "taggedText" : "sup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Hello."
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "whatsup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what do you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what can you do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yo"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what'us up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "heya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good afternoon"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "good morning"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi!"
+                },
+                {
+                    "language" : "en-US",
                     "taggedText" : "Hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there."
                 }
             ]
+        },
+        {
+            "uniqueName" : "collect_fallback",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : "Looks like I'm having trouble. Apologies for that. Let's start again, how can I help you today?"
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
         },
         {
             "uniqueName" : "fallback",
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://getaccountinfo-2271-dev.twil.io/index"
+                        "remember" : { "AgnetTransfer" : "true" }
                     },
-                    { "listen" : true }
+                    {
+                        "redirect" : {
+                            "method" : "POST",
+                            "uri" : "https://payment-method-6593.twil.io/fallback"
+                        }
+                    }
                 ]
             },
             "fields" : [],
@@ -419,15 +217,11 @@
             "samples" : [
                 {
                     "language" : "en-US",
+                    "taggedText" : "that's all"
+                },
+                {
+                    "language" : "en-US",
                     "taggedText" : "bye bye"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no thanks"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "see ya"
                 },
                 {
                     "language" : "en-US",
@@ -435,31 +229,7 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "that's all"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "cancel"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "stop"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "go away"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "no"
-                },
-                {
-                    "language" : "en-US",
                     "taggedText" : "stop talking"
-                },
-                {
-                    "language" : "en-US",
-                    "taggedText" : "goodbye"
                 },
                 {
                     "language" : "en-US",
@@ -467,11 +237,27 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "no thanks"
+                    "taggedText" : "that's all for today"
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "that's all for today"
+                    "taggedText" : "goodbye"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "cancel"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "see ya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "stop"
                 },
                 {
                     "language" : "en-US",
@@ -479,16 +265,28 @@
                 },
                 {
                     "language" : "en-US",
-                    "taggedText" : "that is all thank you"
+                    "taggedText" : "go away"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
                 },
                 {
                     "language" : "en-US",
                     "taggedText" : "that would be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that is all thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
                 }
             ]
         }
     ],
     "modelBuild" : {
-        "uniqueName" : "GetAccountInfo_13-1-2021_1.25.55am"
+        "uniqueName" : "Payment_Method_MainIVR_20-1-2021_8.47.12pm"
     }
 }
